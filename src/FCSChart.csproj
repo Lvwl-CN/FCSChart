@@ -3,11 +3,12 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
-    <Authors>Lvwl@outlook.com</Authors>
+    <Authors>Lvwl-CN@outlook.com</Authors>
     <Description>FCS图表显示控件</Description>
-    <PackageProjectUrl>https://github.com/Lvwl-CN/FCSReader</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/Lvwl-CN/FCSChart</PackageProjectUrl>
     <AssemblyName>FCSChart</AssemblyName>
     <RootNamespace>FCSChart</RootNamespace>
+    <Company>Lvwl-CN@outlook.com</Company>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
