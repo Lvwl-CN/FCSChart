@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Authors>Lvwl@outlook.com</Authors>
+    <Description>FCS图表显示控件</Description>
+    <PackageProjectUrl>https://github.com/Lvwl-CN/FCSReader</PackageProjectUrl>
+    <AssemblyName>FCSChart</AssemblyName>
+    <RootNamespace>FCSChart</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Themes\Graphical\**" />
+    <EmbeddedResource Remove="Themes\Graphical\**" />
+    <None Remove="Themes\Graphical\**" />
+    <Page Remove="Themes\Graphical\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Series\DensityBitmapSeries.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Themes\Axis\LogicleBiexAxis.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Themes\FCSChart\DensityChart.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Themes\FCSChart\HistogramChart.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Themes\FCSChart\ContourChart.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
+</Project>

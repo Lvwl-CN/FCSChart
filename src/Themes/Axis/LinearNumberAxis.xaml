@@ -1,0 +1,60 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:axis="clr-namespace:FCSChart.Axis">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/FCSChart;Component/Themes/Converter.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <ControlTemplate x:Key="LinearXTemplate" TargetType="{x:Type axis:LinearNumberAxis}">
+        <Border x:Name="border" BorderThickness="0,1,0,0" BorderBrush="{TemplateBinding Foreground}" Margin="0,-1,0,0" Background="{TemplateBinding Background}" Focusable="{TemplateBinding Focusable}">
+            <ItemsControl ItemsSource="{TemplateBinding ItemsSource}" Focusable="{TemplateBinding Focusable}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Grid/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Margin="{Binding Location,Converter={StaticResource axisLocationConverter},ConverterParameter={x:Static axis:AxisType.X}}">
+                            <Line Y2="{Binding Length}" Stroke="{Binding ElementName=border,Path=BorderBrush}" StrokeThickness="1" HorizontalAlignment="Left"/>
+                            <TextBlock Text="{Binding Value}" Foreground="{Binding ElementName=border,Path=BorderBrush}" FontSize="{Binding FontSize}" Margin="{Binding RelativeSource={x:Static RelativeSource.Self},Path=ActualWidth,Converter={StaticResource axisTextConverter},ConverterParameter={x:Static axis:AxisType.X}}" HorizontalAlignment="Left"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Border>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="LinearYTemplate" TargetType="{x:Type axis:LinearNumberAxis}">
+        <Border x:Name="border" BorderThickness="0,0,1,0" BorderBrush="{TemplateBinding Foreground}" Margin="0,0,-1,0" Background="{TemplateBinding Background}" Focusable="{TemplateBinding Focusable}">
+            <ItemsControl Grid.Column="1" ItemsSource="{TemplateBinding ItemsSource}" Focusable="{TemplateBinding Focusable}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Grid/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right"  Margin="{Binding Location,Converter={StaticResource axisLocationConverter},ConverterParameter={x:Static axis:AxisType.Y}}">
+                            <TextBlock Text="{Binding Value}" TextWrapping="Wrap" Foreground="{Binding ElementName=border,Path=BorderBrush}" FontSize="{Binding FontSize}"  Margin="{Binding RelativeSource={x:Static RelativeSource.Self},Path=ActualHeight,Converter={StaticResource axisTextConverter},ConverterParameter={x:Static axis:AxisType.Y}}" VerticalAlignment="Bottom"/>
+                            <Line X2="{Binding Length}" Stroke="{Binding ElementName=border,Path=BorderBrush}" StrokeThickness="1" VerticalAlignment="Bottom"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Border>
+    </ControlTemplate>
+
+    <Style TargetType="{x:Type axis:LinearNumberAxis}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Focusable" Value="False"/>
+        <Style.Triggers>
+            <Trigger Property="XYType" Value="X">
+                <Setter Property="Template" Value="{StaticResource LinearXTemplate}"/>
+            </Trigger>
+            <Trigger Property="XYType" Value="Y">
+                <Setter Property="Template" Value="{StaticResource LinearYTemplate}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>

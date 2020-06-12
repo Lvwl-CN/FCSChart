@@ -1,0 +1,14 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:FCSChart">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/FCSChart;Component/Themes/Axis/LinearNumberAxis.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/FCSChart;Component/Themes/Axis/LogarithmicNumberAxis.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/FCSChart;Component/Themes/Axis/LogicleBiexAxis.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/FCSChart;Component/Themes/FCSChart/ScatterChart.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/FCSChart;Component/Themes/FCSChart/ContourChart.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/FCSChart;Component/Themes/FCSChart/DensityChart.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/FCSChart;Component/Themes/FCSChart/HistogramChart.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>
