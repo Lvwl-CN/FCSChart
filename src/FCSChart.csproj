@@ -3,12 +3,12 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
-    <Authors>Lvwl-CN@outlook.com</Authors>
+    <Authors>Lvwl</Authors>
     <Description>流式细胞仪数据文件FCS图表显示控件</Description>
     <PackageProjectUrl>https://github.com/Lvwl-CN/FCSChart</PackageProjectUrl>
     <AssemblyName>FCSChart</AssemblyName>
     <RootNamespace>FCSChart</RootNamespace>
-    <Company>Lvwl-CN@outlook.com</Company>
+    <Company>Lvwl</Company>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
