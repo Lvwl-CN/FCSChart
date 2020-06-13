@@ -58,13 +58,13 @@ namespace FCSChart.Graphical
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public override void PanelMouseDown(object sender, MouseButtonEventArgs e) { }
+        internal override void PanelMouseDown(object sender, MouseButtonEventArgs e) { }
         /// <summary>
         /// 鼠标移动
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public override void PanelMouseMove(object sender, MouseEventArgs e)
+        internal override void PanelMouseMove(object sender, MouseEventArgs e)
         {
             if (IsCreateing && sender is Panel panel && GraphicalModel is PolygonGraphicalModel model)
             {
@@ -80,7 +80,7 @@ namespace FCSChart.Graphical
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public override void PanelMouseUp(object sender, MouseButtonEventArgs e)
+        internal override void PanelMouseUp(object sender, MouseButtonEventArgs e)
         {
             if (IsCreateing && sender is Panel panel && GraphicalModel is PolygonGraphicalModel model)
             {
@@ -104,7 +104,7 @@ namespace FCSChart.Graphical
         /// </summary>
         /// <param name="x"></param>
         /// <param name="y"></param>
-        public override void Move(double x, double y)
+        internal override void Move(double x, double y)
         {
             if (GraphicalModel is PolygonGraphicalModel model)
             {

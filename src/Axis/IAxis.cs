@@ -48,12 +48,12 @@ namespace FCSChart.Axis
         /// <summary>
         /// 用于x或y轴分割
         /// </summary>
-        public AxisType XYType
+        internal AxisType XYType
         {
             get { return (AxisType)GetValue(XYTypeProperty); }
             set { SetValue(XYTypeProperty, value); }
         }
-        public static readonly DependencyProperty XYTypeProperty = DependencyProperty.Register("XYType", typeof(AxisType), typeof(IAxis), new PropertyMetadata(AxisType.X));
+        internal static readonly DependencyProperty XYTypeProperty = DependencyProperty.Register("XYType", typeof(AxisType), typeof(IAxis), new PropertyMetadata(AxisType.X));
         #endregion
 
         public IAxis()
@@ -83,7 +83,7 @@ namespace FCSChart.Axis
         /// 绘制数据分隔线
         /// </summary>
         /// <returns></returns>
-        public abstract void Drawing();
+        internal abstract void Drawing();
 
 
         /// <summary>
@@ -227,7 +227,7 @@ namespace FCSChart.Axis
         /// <param name="index">第几个参数</param>
         /// <param name="count">从最大值到最小值切分多少份</param>
         /// <returns></returns>
-        public virtual Task<Dictionary<double[], double>> GetHistogramViewData(IEnumerable<IList> items, int index, int count)
+        internal virtual Task<Dictionary<double[], double>> GetHistogramViewData(IEnumerable<IList> items, int index, int count)
         {
             var maxaxis = MaxAxis;
             var minaxis = MinAxis;
@@ -266,7 +266,7 @@ namespace FCSChart.Axis
         /// </summary>
         /// <param name="x">x轴移动距离</param>
         /// <param name="y">y轴移动距离</param>
-        public virtual void Move(double x, double y)
+        internal virtual void Move(double x, double y)
         {
             if (!IsLoaded) return;
             double controlActualLength = 1;
@@ -294,7 +294,7 @@ namespace FCSChart.Axis
         /// </summary>
         /// <param name="value"></param>
         /// <param name="point"></param>
-        public virtual void Zoom(double percent, Point point)
+        internal virtual void Zoom(double percent, Point point)
         {
             if (!IsLoaded) return;
             double controlLength = 1;

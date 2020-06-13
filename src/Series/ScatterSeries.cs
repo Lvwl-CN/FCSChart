@@ -30,7 +30,7 @@ namespace FCSChart.Series
 
         #endregion
 
-        public override async void Drawing()
+        internal override async void Drawing()
         {
             if (OwnerChart == null || OwnerChart.ItemsSource == null || OwnerChart.XAxis == null || OwnerChart.YAxis == null) return;
             IEnumerable<IList> items = OwnerChart.ItemsSource;

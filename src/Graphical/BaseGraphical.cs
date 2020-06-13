@@ -22,15 +22,15 @@ namespace FCSChart.Graphical
         /// <summary>
         /// 点位集合坐标值转化实际显示位置
         /// </summary>
-        protected static readonly Converters.GraphicalPointsToViewValueConverter GraphicalPointsConverter = new Converters.GraphicalPointsToViewValueConverter();
+        internal static readonly Converters.GraphicalPointsToViewValueConverter GraphicalPointsConverter = new Converters.GraphicalPointsToViewValueConverter();
         /// <summary>
         /// 点位坐标值转化实际显示位置
         /// </summary>
-        protected static readonly Converters.GraphicalPointToViewValueConverter GraphicalPointConverter = new Converters.GraphicalPointToViewValueConverter();
+        internal static readonly Converters.GraphicalPointToViewValueConverter GraphicalPointConverter = new Converters.GraphicalPointToViewValueConverter();
         /// <summary>
         /// bool转化为visibility值
         /// </summary>
-        protected static readonly Converters.BoolToVisibilityConverter BoolVisibilityConverter = new Converters.BoolToVisibilityConverter();
+        internal static readonly Converters.BoolToVisibilityConverter BoolVisibilityConverter = new Converters.BoolToVisibilityConverter();
         #endregion
         public Func<BaseGraphical, string> CreateNewGraphicalNameFaction { get; set; } = Helper.CreateNewGraphicalNameFaction;
         #region property
@@ -88,19 +88,19 @@ namespace FCSChart.Graphical
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public abstract void PanelMouseDown(object sender, MouseButtonEventArgs e);
+        internal abstract void PanelMouseDown(object sender, MouseButtonEventArgs e);
         /// <summary>
         /// 容器鼠标移动
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public abstract void PanelMouseMove(object sender, MouseEventArgs e);
+        internal abstract void PanelMouseMove(object sender, MouseEventArgs e);
         /// <summary>
         /// 容器鼠标抬起
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public abstract void PanelMouseUp(object sender, MouseButtonEventArgs e);
+        internal abstract void PanelMouseUp(object sender, MouseButtonEventArgs e);
 
         #endregion
 
@@ -110,7 +110,7 @@ namespace FCSChart.Graphical
         /// </summary>
         /// <param name="x"></param>
         /// <param name="y"></param>
-        public abstract void Move(double x, double y);
+        internal abstract void Move(double x, double y);
         ///// <summary>
         ///// 缩放门
         ///// </summary>

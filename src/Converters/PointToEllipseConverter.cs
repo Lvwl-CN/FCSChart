@@ -9,7 +9,7 @@ using System.Windows.Media;
 
 namespace FCSChart.Converters
 {
-    public class PointToEllipseConverter : IValueConverter
+    internal class PointToEllipseConverter : IValueConverter
     {
         public double RadiusX { get; set; } = 5;
         public double RadiusY { get; set; } = 5;

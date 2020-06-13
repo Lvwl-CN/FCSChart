@@ -45,7 +45,7 @@ namespace FCSChart.Series
         }
         public static readonly DependencyProperty GradesBaseProperty = DependencyProperty.Register("GradesBase", typeof(byte), typeof(ContourSeries), new PropertyMetadata((byte)0x06, NeedRedrawingProperty_Changed));
 
-        public override async void Drawing()
+        internal override async void Drawing()
         {
             if (OwnerChart == null || OwnerChart.ItemsSource == null || OwnerChart.XAxis == null || OwnerChart.YAxis == null) return;
             IEnumerable<IList> items = OwnerChart.ItemsSource;

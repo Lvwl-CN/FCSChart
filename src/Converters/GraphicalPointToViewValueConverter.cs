@@ -11,7 +11,7 @@ namespace FCSChart.Converters
     /// <summary>
     /// axis坐标值点位转化为图形显示位置值
     /// </summary>
-    public class GraphicalPointToViewValueConverter : IValueConverter
+    internal class GraphicalPointToViewValueConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

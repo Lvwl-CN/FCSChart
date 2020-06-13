@@ -157,7 +157,7 @@ namespace FCSChart
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <param name="moveType"></param>
-        public override void Move(double x, double y, AxisChangeType moveType)
+        internal override void Move(double x, double y, AxisChangeType moveType)
         {
             if (moveType == AxisChangeType.None) return;
             base.Move(x, y, moveType);
@@ -169,7 +169,7 @@ namespace FCSChart
         /// <param name="point"></param>
         /// <param name="percent"></param>
         /// <param name="zoomType"></param>
-        public override void Zoom(Point point, double percent, AxisChangeType zoomType)
+        internal override void Zoom(Point point, double percent, AxisChangeType zoomType)
         {
             if (zoomType == AxisChangeType.None) return;
             base.Zoom(point, percent, zoomType);

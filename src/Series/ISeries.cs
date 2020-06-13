@@ -78,7 +78,7 @@ namespace FCSChart.Series
         /// 绘制图表界面
         /// </summary>
         /// <param name="items"></param>
-        public abstract void Drawing();
+        internal abstract void Drawing();
 
 
 
@@ -88,7 +88,7 @@ namespace FCSChart.Series
         /// </summary>
         /// <param name="x"></param>
         /// <param name="y"></param>
-        public virtual void Move(double x, double y)
+        internal virtual void Move(double x, double y)
         {
             Matrix.OffsetX += x;
             Matrix.OffsetY += y;
@@ -101,7 +101,7 @@ namespace FCSChart.Series
         /// <param name="centerY"></param>
         /// <param name="scaleX"></param>
         /// <param name="scaleY"></param>
-        public virtual void Zoom(Point center, double scaleX, double scaleY)
+        internal virtual void Zoom(Point center, double scaleX, double scaleY)
         {
             Point pointToContent = this.RenderTransform.Inverse.Transform(center);
             Matrix.M11 *= scaleX;
@@ -114,7 +114,7 @@ namespace FCSChart.Series
         /// <summary>
         /// 清除图形转换
         /// </summary>
-        public virtual void ClearTransform()
+        internal virtual void ClearTransform()
         {
             Matrix.M11 = Matrix.M22 = 1;
             Matrix.OffsetX = Matrix.OffsetY = 0;

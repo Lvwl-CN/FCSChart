@@ -29,7 +29,7 @@ namespace FCSChart.Graphical
         public QuadrilateralGraphical(QuadrilateralGraphicalModel model) : base(model) { }
 
         #region function
-        public override void PanelMouseDown(object sender, MouseButtonEventArgs e)
+        internal override void PanelMouseDown(object sender, MouseButtonEventArgs e)
         {
             if (IsCreateing && sender is Panel panel && GraphicalModel is QuadrilateralGraphicalModel model && model.Points.Count <= 0)
             {
@@ -43,7 +43,7 @@ namespace FCSChart.Graphical
                 model.Points.Add(tempPoint);
             }
         }
-        public override void PanelMouseMove(object sender, MouseEventArgs e)
+        internal override void PanelMouseMove(object sender, MouseEventArgs e)
         {
             if (IsCreateing && sender is Panel panel && GraphicalModel is QuadrilateralGraphicalModel model && model.Points.Count == 4)
             {
@@ -56,7 +56,7 @@ namespace FCSChart.Graphical
                 Drawing();
             }
         }
-        public override void PanelMouseUp(object sender, MouseButtonEventArgs e)
+        internal override void PanelMouseUp(object sender, MouseButtonEventArgs e)
         {
             if (IsCreateing && GraphicalModel is QuadrilateralGraphicalModel model)
             {

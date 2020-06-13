@@ -37,7 +37,7 @@ namespace FCSChart.Axis
         /// <summary>
         /// 重新绘制坐标间隔
         /// </summary>
-        public override void Drawing()
+        internal override void Drawing()
         {
             if (!this.IsLoaded) return;
             var range = MaxAxis - MinAxis;

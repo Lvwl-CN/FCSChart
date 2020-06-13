@@ -28,7 +28,7 @@ namespace FCSChart.Graphical
         public VerticalGraphical(VerticalGraphicalModel model) : base(model) { }
 
         #region 容器事件--绘制图形时使用
-        public override void PanelMouseDown(object sender, MouseButtonEventArgs e)
+        internal override void PanelMouseDown(object sender, MouseButtonEventArgs e)
         {
             if (IsCreateing && sender is Panel panel && GraphicalModel is VerticalGraphicalModel model)
             {
@@ -38,7 +38,7 @@ namespace FCSChart.Graphical
             }
         }
 
-        public override void PanelMouseMove(object sender, MouseEventArgs e)
+        internal override void PanelMouseMove(object sender, MouseEventArgs e)
         {
             if (IsCreateing && sender is Panel panel && GraphicalModel is VerticalGraphicalModel model && model.X1 != 0 && model.X2 != 0)
             {
@@ -49,7 +49,7 @@ namespace FCSChart.Graphical
             }
         }
 
-        public override void PanelMouseUp(object sender, MouseButtonEventArgs e)
+        internal override void PanelMouseUp(object sender, MouseButtonEventArgs e)
         {
             if (IsCreateing && GraphicalModel is VerticalGraphicalModel model)
             {
@@ -75,7 +75,7 @@ namespace FCSChart.Graphical
             }
             this.OnPropertyChanged("GraphicalModel");
         }
-        public override void Move(double x, double y)
+        internal override void Move(double x, double y)
         {
             if (GraphicalModel is VerticalGraphicalModel model && x != 0)
             {

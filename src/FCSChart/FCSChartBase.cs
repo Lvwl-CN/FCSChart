@@ -54,22 +54,22 @@ namespace FCSChart.FCSChart
         /// <summary>
         /// x轴可用的刻度条集合
         /// </summary>
-        public IEnumerable<IAxis> XAxisList
+        internal IEnumerable<IAxis> XAxisList
         {
             get { return (IEnumerable<IAxis>)GetValue(XAxisListProperty); }
             set { SetValue(XAxisListProperty, value); }
         }
-        public static readonly DependencyProperty XAxisListProperty = DependencyProperty.Register("XAxisList", typeof(IEnumerable<IAxis>), typeof(FCSChartBase), new PropertyMetadata(null));
+        internal static readonly DependencyProperty XAxisListProperty = DependencyProperty.Register("XAxisList", typeof(IEnumerable<IAxis>), typeof(FCSChartBase), new PropertyMetadata(null));
 
         /// <summary>
         /// y轴可用的刻度条集合
         /// </summary>
-        public IEnumerable<IAxis> YAxisList
+        internal IEnumerable<IAxis> YAxisList
         {
             get { return (IEnumerable<IAxis>)GetValue(YAxisListProperty); }
             set { SetValue(YAxisListProperty, value); }
         }
-        public static readonly DependencyProperty YAxisListProperty = DependencyProperty.Register("YAxisList", typeof(IEnumerable<IAxis>), typeof(FCSChartBase), new PropertyMetadata(null));
+        internal static readonly DependencyProperty YAxisListProperty = DependencyProperty.Register("YAxisList", typeof(IEnumerable<IAxis>), typeof(FCSChartBase), new PropertyMetadata(null));
         /// <summary>
         /// 填充x轴刻度条选项
         /// </summary>

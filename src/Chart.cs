@@ -47,29 +47,29 @@ namespace FCSChart
         public static readonly DependencyProperty SeriesProperty = DependencyProperty.Register("Series", typeof(ISeries), typeof(Chart), new PropertyMetadata((sender, e) => { if (sender is Chart chart && e.NewValue is ISeries series) series.OwnerChart = chart; }));
 
         #region xy轴类型
-        public int X
+        internal int X
         {
             get { return (int)GetValue(XProperty); }
             set { SetValue(XProperty, value); }
         }
-        public static readonly DependencyProperty XProperty = DependencyProperty.Register("X", typeof(int), typeof(Chart), new PropertyMetadata(0, (sender, e) => { if (sender is Chart chart && chart.IsLoaded) chart.DrawingSeries(); }));
+        internal static readonly DependencyProperty XProperty = DependencyProperty.Register("X", typeof(int), typeof(Chart), new PropertyMetadata(0, (sender, e) => { if (sender is Chart chart && chart.IsLoaded) chart.DrawingSeries(); }));
 
-        public int Y
+        internal int Y
         {
             get { return (int)GetValue(YProperty); }
             set { SetValue(YProperty, value); }
         }
-        public static readonly DependencyProperty YProperty = DependencyProperty.Register("Y", typeof(int), typeof(Chart), new PropertyMetadata(1, (sender, e) => { if (sender is Chart chart && chart.IsLoaded) chart.DrawingSeries(); }));
+        internal static readonly DependencyProperty YProperty = DependencyProperty.Register("Y", typeof(int), typeof(Chart), new PropertyMetadata(1, (sender, e) => { if (sender is Chart chart && chart.IsLoaded) chart.DrawingSeries(); }));
 
         /// <summary>
         /// x轴
         /// </summary>
-        public IAxis XAxis
+        internal IAxis XAxis
         {
             get { return (IAxis)GetValue(XAxisProperty); }
             set { SetValue(XAxisProperty, value); }
         }
-        public static readonly DependencyProperty XAxisProperty = DependencyProperty.Register("XAxis", typeof(IAxis), typeof(Chart), new PropertyMetadata(XAxis_Changed));
+        internal static readonly DependencyProperty XAxisProperty = DependencyProperty.Register("XAxis", typeof(IAxis), typeof(Chart), new PropertyMetadata(XAxis_Changed));
         private static void XAxis_Changed(DependencyObject sender, DependencyPropertyChangedEventArgs e)
         {
             if (sender is Chart chart)
@@ -87,12 +87,12 @@ namespace FCSChart
         /// <summary>
         /// y轴
         /// </summary>
-        public IAxis YAxis
+        internal IAxis YAxis
         {
             get { return (IAxis)GetValue(YAxisProperty); }
             set { SetValue(YAxisProperty, value); }
         }
-        public static readonly DependencyProperty YAxisProperty = DependencyProperty.Register("YAxis", typeof(IAxis), typeof(Chart), new PropertyMetadata(YAxis_Changed));
+        internal static readonly DependencyProperty YAxisProperty = DependencyProperty.Register("YAxis", typeof(IAxis), typeof(Chart), new PropertyMetadata(YAxis_Changed));
         private static void YAxis_Changed(DependencyObject sender, DependencyPropertyChangedEventArgs e)
         {
             if (sender is Chart chart)
@@ -291,7 +291,7 @@ namespace FCSChart
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <param name="moveType"></param>
-        public virtual void Move(double x, double y, AxisChangeType moveType)
+        internal virtual void Move(double x, double y, AxisChangeType moveType)
         {
             if (moveType == AxisChangeType.None) return;
             switch (moveType)
@@ -321,7 +321,7 @@ namespace FCSChart
         /// <param name="point"></param>
         /// <param name="percent"></param>
         /// <param name="zoomType"></param>
-        public virtual void Zoom(Point point, double percent, AxisChangeType zoomType)
+        internal virtual void Zoom(Point point, double percent, AxisChangeType zoomType)
         {
             if (zoomType == AxisChangeType.None) return;
             switch (zoomType)

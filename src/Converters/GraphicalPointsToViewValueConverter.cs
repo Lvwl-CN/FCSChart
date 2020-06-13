@@ -12,7 +12,7 @@ namespace FCSChart.Converters
     /// <summary>
     /// axis坐标值点位集合转化为图形显示位置值集合-用于多边形门绘制
     /// </summary>
-    public class GraphicalPointsToViewValueConverter : IValueConverter
+    internal class GraphicalPointsToViewValueConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
