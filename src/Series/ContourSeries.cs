@@ -70,8 +70,8 @@ namespace FCSChart.Series
             var pointLength = this.PointLength;
             var areaLength = this.AreaLength;
             var gradesBase = this.GradesBase;
-            var width = this.ActualWidth;
-            var height = this.ActualHeight;
+            var width = xaxis.ActualWidth;
+            var height = yaxis.ActualHeight;
             Func<double, ValueLocationConvertParam, double> xGetLocation = xaxis.GetValueLocation;
             Func<double, ValueLocationConvertParam, double> yGetLocation = yaxis.GetValueLocation;
             var xParam = xaxis.GetConvertParam();
