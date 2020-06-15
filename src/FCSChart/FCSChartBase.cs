@@ -54,61 +54,57 @@ namespace FCSChart.FCSChart
         /// <summary>
         /// x轴可用的刻度条集合
         /// </summary>
-        internal IEnumerable<IAxis> XAxisList
+        public IEnumerable<IAxis> XAxisList
         {
             get { return (IEnumerable<IAxis>)GetValue(XAxisListProperty); }
             set { SetValue(XAxisListProperty, value); }
         }
-        internal static readonly DependencyProperty XAxisListProperty = DependencyProperty.Register("XAxisList", typeof(IEnumerable<IAxis>), typeof(FCSChartBase), new PropertyMetadata(null));
+        public static readonly DependencyProperty XAxisListProperty = DependencyProperty.Register("XAxisList", typeof(IEnumerable<IAxis>), typeof(FCSChartBase), new PropertyMetadata(null));
 
         /// <summary>
         /// y轴可用的刻度条集合
         /// </summary>
-        internal IEnumerable<IAxis> YAxisList
+        public IEnumerable<IAxis> YAxisList
         {
             get { return (IEnumerable<IAxis>)GetValue(YAxisListProperty); }
             set { SetValue(YAxisListProperty, value); }
         }
-        internal static readonly DependencyProperty YAxisListProperty = DependencyProperty.Register("YAxisList", typeof(IEnumerable<IAxis>), typeof(FCSChartBase), new PropertyMetadata(null));
+        public static readonly DependencyProperty YAxisListProperty = DependencyProperty.Register("YAxisList", typeof(IEnumerable<IAxis>), typeof(FCSChartBase), new PropertyMetadata(null));
         /// <summary>
         /// 填充x轴刻度条选项
         /// </summary>
         protected virtual void FillXAxisList()
         {
-            var line = new LinearNumberAxis();
-            var log = new LogarithmicNumberAxis();
-            var logbiex = new LogicleBiexAxis();
-            Binding maxbinding = new Binding("XMax") { Mode = BindingMode.TwoWay };
-            Binding minbinding = new Binding("XMin") { Mode = BindingMode.TwoWay };
-            minbinding.Source = maxbinding.Source = this;
-            line.SetBinding(IAxis.MaxProperty, maxbinding);
-            line.SetBinding(IAxis.MinProperty, minbinding);
-            log.SetBinding(IAxis.MaxProperty, maxbinding);
-            log.SetBinding(IAxis.MinProperty, minbinding);
-            logbiex.SetBinding(IAxis.MaxProperty, maxbinding);
-            logbiex.SetBinding(IAxis.MinProperty, minbinding);
-            XAxisList = new List<IAxis>() { line, log, logbiex };
-            XAxis = line;
+            if (XAxisList == null)
+            {
+                XAxisList = new List<IAxis>() { new LinearNumberAxis(), new LogarithmicNumberAxis(), new LogicleBiexAxis() };
+                Binding maxbinding = new Binding("XMax") { Mode = BindingMode.TwoWay };
+                Binding minbinding = new Binding("XMin") { Mode = BindingMode.TwoWay };
+                minbinding.Source = maxbinding.Source = this;
+                foreach (var iaxis in XAxisList)
+                {
+                    iaxis.SetBinding(IAxis.MaxProperty, maxbinding);
+                    iaxis.SetBinding(IAxis.MinProperty, minbinding);
+                }
+            }
         }
         /// <summary>
         /// 填充y轴刻度条选项
         /// </summary>
         protected virtual void FillYAxisList()
         {
-            var line = new LinearNumberAxis();
-            var log = new LogarithmicNumberAxis();
-            var logbiex = new LogicleBiexAxis();
-            Binding maxbinding = new Binding("YMax") { Mode = BindingMode.TwoWay };
-            Binding minbinding = new Binding("YMin") { Mode = BindingMode.TwoWay };
-            minbinding.Source = maxbinding.Source = this;
-            line.SetBinding(IAxis.MaxProperty, maxbinding);
-            line.SetBinding(IAxis.MinProperty, minbinding);
-            log.SetBinding(IAxis.MaxProperty, maxbinding);
-            log.SetBinding(IAxis.MinProperty, minbinding);
-            logbiex.SetBinding(IAxis.MaxProperty, maxbinding);
-            logbiex.SetBinding(IAxis.MinProperty, minbinding);
-            YAxisList = new List<IAxis>() { line, log, logbiex };
-            YAxis = line;
+            if (YAxisList == null)
+            {
+                YAxisList = new List<IAxis>() { new LinearNumberAxis(), new LogarithmicNumberAxis(), new LogicleBiexAxis() };
+                Binding maxbinding = new Binding("YMax") { Mode = BindingMode.TwoWay };
+                Binding minbinding = new Binding("YMin") { Mode = BindingMode.TwoWay };
+                minbinding.Source = maxbinding.Source = this;
+                foreach (var iaxis in YAxisList)
+                {
+                    iaxis.SetBinding(IAxis.MaxProperty, maxbinding);
+                    iaxis.SetBinding(IAxis.MinProperty, minbinding);
+                }
+            }
         }
         #endregion
 
@@ -183,6 +179,7 @@ namespace FCSChart.FCSChart
         }
 
         #endregion
+
 
         public FCSChartBase()
         {

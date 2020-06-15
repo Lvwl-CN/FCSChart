@@ -75,6 +75,9 @@ namespace FCSChart.Graphical
         #endregion
 
         public BaseGraphical() { IsCreateing = true; CreateNewMode(); }
+        /// <summary>
+        /// 创建新的门数据模型
+        /// </summary>
         protected abstract void CreateNewMode();
 
         public BaseGraphical(BaseGraphicalModel model)
@@ -126,7 +129,7 @@ namespace FCSChart.Graphical
         #endregion
 
         /// <summary>
-        /// 清理资源
+        /// 清理资源--删除图形时可调用
         /// </summary>
         public virtual void Dispose()
         {

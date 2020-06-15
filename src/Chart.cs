@@ -64,12 +64,12 @@ namespace FCSChart
         /// <summary>
         /// x轴
         /// </summary>
-        internal IAxis XAxis
+        public IAxis XAxis
         {
             get { return (IAxis)GetValue(XAxisProperty); }
             set { SetValue(XAxisProperty, value); }
         }
-        internal static readonly DependencyProperty XAxisProperty = DependencyProperty.Register("XAxis", typeof(IAxis), typeof(Chart), new PropertyMetadata(XAxis_Changed));
+        public static readonly DependencyProperty XAxisProperty = DependencyProperty.Register("XAxis", typeof(IAxis), typeof(Chart), new PropertyMetadata(XAxis_Changed));
         private static void XAxis_Changed(DependencyObject sender, DependencyPropertyChangedEventArgs e)
         {
             if (sender is Chart chart)
@@ -87,12 +87,12 @@ namespace FCSChart
         /// <summary>
         /// y轴
         /// </summary>
-        internal IAxis YAxis
+        public IAxis YAxis
         {
             get { return (IAxis)GetValue(YAxisProperty); }
             set { SetValue(YAxisProperty, value); }
         }
-        internal static readonly DependencyProperty YAxisProperty = DependencyProperty.Register("YAxis", typeof(IAxis), typeof(Chart), new PropertyMetadata(YAxis_Changed));
+        public static readonly DependencyProperty YAxisProperty = DependencyProperty.Register("YAxis", typeof(IAxis), typeof(Chart), new PropertyMetadata(YAxis_Changed));
         private static void YAxis_Changed(DependencyObject sender, DependencyPropertyChangedEventArgs e)
         {
             if (sender is Chart chart)
