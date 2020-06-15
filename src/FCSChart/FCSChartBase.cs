@@ -3,6 +3,7 @@ using FCSChart.Graphical;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Data;
@@ -86,6 +87,7 @@ namespace FCSChart.FCSChart
                     iaxis.SetBinding(IAxis.MaxProperty, maxbinding);
                     iaxis.SetBinding(IAxis.MinProperty, minbinding);
                 }
+                if (XAxis == null) XAxis = XAxisList.FirstOrDefault();
             }
         }
         /// <summary>
@@ -104,6 +106,7 @@ namespace FCSChart.FCSChart
                     iaxis.SetBinding(IAxis.MaxProperty, maxbinding);
                     iaxis.SetBinding(IAxis.MinProperty, minbinding);
                 }
+                if (YAxis == null) YAxis = YAxisList.FirstOrDefault();
             }
         }
         #endregion
