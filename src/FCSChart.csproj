@@ -14,6 +14,7 @@
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageTags>流式细胞仪数据图表控件 FCS文件 C# Chart .NETCore3.1 WPF</PackageTags>
     <Version>1.0.1</Version>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -28,10 +29,6 @@
     <Compile Remove="Themes\Graphical\**" />
     <EmbeddedResource Remove="Themes\Graphical\**" />
     <None Remove="Themes\Graphical\**" />
-    <None Include="..\LICENSE">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
     <Page Remove="Themes\Graphical\**" />
   </ItemGroup>
 
