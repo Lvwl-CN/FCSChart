@@ -55,7 +55,7 @@ namespace FCSChart.Series
                 var streamGeometry = new StreamGeometry() { FillRule = FillRule.Nonzero };
                 using (StreamGeometryContext sgc = streamGeometry.Open())
                 {
-                    Size size = new Size(pointLength, pointLength);
+                    //Size size = new Size(pointLength, pointLength);
                     foreach (var item in items)
                     {
                         var valueX = Convert.ToDouble(item[x]);

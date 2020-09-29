@@ -81,8 +81,6 @@ namespace FCSChart.Series
         internal abstract void Drawing();
 
 
-
-
         /// <summary>
         /// 移动图形
         /// </summary>
