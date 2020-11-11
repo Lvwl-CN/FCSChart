@@ -247,7 +247,7 @@ namespace FCSChart.Series
 
         private void DrawingLine(StreamGeometryContext sgc, Point start, Point lineto)
         {
-            if (start == null || lineto == null) return;
+            if (start == default || lineto == default) return;
             sgc.BeginFigure(start, true, false);
             sgc.LineTo(lineto, true, false);
         }

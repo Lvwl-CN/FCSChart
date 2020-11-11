@@ -241,7 +241,7 @@ namespace FCSChart
         {
             if (e.LeftButton == MouseButtonState.Pressed)
             {
-                if (moveStartPoint != null && moveStartPoint != default)
+                if (moveStartPoint != default)
                 {
                     var point = e.GetPosition(ViewPanel);
                     var x = point.X - moveStartPoint.X;

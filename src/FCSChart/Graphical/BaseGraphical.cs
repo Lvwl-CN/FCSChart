@@ -267,7 +267,7 @@ namespace FCSChart.Graphical
         {
             if (e.LeftButton == MouseButtonState.Pressed)
             {
-                if (GraphicalMoveStartPoint != null && GraphicalMoveStartPoint != default)
+                if (GraphicalMoveStartPoint != default)
                 {
                     var point = e.GetPosition(OwnerChart.ViewPanel);
                     var x = point.X - GraphicalMoveStartPoint.X;
