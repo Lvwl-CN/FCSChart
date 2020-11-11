@@ -2,11 +2,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Media;
 
 namespace FCSChart.Series
@@ -49,7 +46,7 @@ namespace FCSChart.Series
             var minX = OwnerChart.XAxis.Min;
             var maxY = OwnerChart.YAxis.Max;
             var minY = OwnerChart.YAxis.Min;
-            using var task = Task.Run(() =>
+            var task = Task.Run(() =>
             {
                 Dictionary<int, List<int>> existed = new Dictionary<int, List<int>>();
                 var streamGeometry = new StreamGeometry() { FillRule = FillRule.Nonzero };
@@ -82,10 +79,12 @@ namespace FCSChart.Series
                 return streamGeometry;
             });
             var geometryTemp = await task;
-            using var dc = DV.RenderOpen();
-            base.ClearTransform();
-            dc.DrawGeometry(this.Fill, new Pen(this.Stroke, 0), geometryTemp);
-            dc.Close();
+            using (var dc = DV.RenderOpen())
+            {
+                base.ClearTransform();
+                dc.DrawGeometry(this.Fill, new Pen(this.Stroke, 0), geometryTemp);
+                dc.Close();
+            }
         }
     }
 }

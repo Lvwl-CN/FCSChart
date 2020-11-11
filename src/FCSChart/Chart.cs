@@ -1,16 +1,13 @@
 ﻿using FCSChart.Axis;
-using FCSChart.Graphical;
 using FCSChart.Series;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Collections.Specialized;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace FCSChart
 {
@@ -353,5 +350,21 @@ namespace FCSChart
         }
 
         #endregion
+
+
+
+        #region 样式
+        /// <summary>
+        /// 图形显示区域背景色
+        /// </summary>
+        public Brush PanelBackground
+        {
+            get { return (Brush)GetValue(PanelBackgroundProperty); }
+            set { SetValue(PanelBackgroundProperty, value); }
+        }
+        public static readonly DependencyProperty PanelBackgroundProperty = DependencyProperty.Register("PanelBackground", typeof(Brush), typeof(Chart), new PropertyMetadata(Brushes.White));
+
+        #endregion
+
     }
 }

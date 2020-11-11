@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows.Input;
 
 namespace FCSChart
@@ -32,6 +30,11 @@ namespace FCSChart
         public void Execute(object parameter)
         {
             ExecuteMethod?.Invoke(parameter);
+        }
+
+        public void CanExecuteChange()
+        {
+            CanExecuteChanged?.Invoke(this, EventArgs.Empty);
         }
     }
 }

@@ -17,7 +17,7 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <chart:ScatterChart ItemsSource="{Binding FCSSet.DataSegment}" Parameters="{Binding FCSSet.Params}" Grid.Row="1">
+        <chart:ScatterChart ItemsSource="{Binding FCSSet.DataSegment}" Parameters="{Binding FCSSet.Params}" Grid.Row="1" Background="Green" PanelBackground="Red" Foreground="White">
             <chart:ScatterChart.XParamDataTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding PnN}"/>
@@ -47,6 +47,11 @@
                     <TextBlock Text="{Binding PnN}"/>
                 </DataTemplate>
             </chart:DensityChart.YParamDataTemplate>
+            <chart:DensityChart.ComboBoxStyle>
+                <Style TargetType="{x:Type ComboBox}">
+                    <Setter Property="Foreground" Value="Red"/>
+                </Style>
+            </chart:DensityChart.ComboBoxStyle>
         </chart:DensityChart>
         <chart:ContourChart ItemsSource="{Binding FCSSet.DataSegment}" Parameters="{Binding FCSSet.Params}" Grid.Column="1">
             <chart:ContourChart.XParamDataTemplate>

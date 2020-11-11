@@ -3,7 +3,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
@@ -56,13 +55,15 @@ namespace FCSChart.Series
             if (OwnerChart.Y < 0) OwnerChart.Y = 1;
             int y = OwnerChart.Y;
             var geometries = await CreateGeometrys(items, xaxis, yaxis, x, y);
-            using var dc = DV.RenderOpen();
-            base.ClearTransform();
-            for (int i = 0; i < geometries.Count; i++)
+            using (var dc = DV.RenderOpen())
             {
-                dc.DrawGeometry(null, new Pen(new SolidColorBrush(GetGradientColor(i, geometries.Count)), 1), geometries[i]);
+                base.ClearTransform();
+                for (int i = 0; i < geometries.Count; i++)
+                {
+                    dc.DrawGeometry(null, new Pen(new SolidColorBrush(GetGradientColor(i, geometries.Count)), 1), geometries[i]);
+                }
+                dc.Close();
             }
-            dc.Close();
         }
 
         private Task<List<StreamGeometry>> CreateGeometrys(IEnumerable<IList> items, IAxis xaxis, IAxis yaxis, int x, int y)
@@ -110,7 +111,7 @@ namespace FCSChart.Series
                 var maxCount = measureData.Values.Max(p => p.Values.Max(k => k.PointsCount));
                 List<StreamGeometry> streams = new List<StreamGeometry>();
                 List<StreamGeometryContext> sgcs = new List<StreamGeometryContext>();
-                var count = Math.Log(maxCount, gradesBase);// Convert.ToInt32(maxCount / subrange);
+                var count = maxCount == 0 ? 0 : Math.Log(maxCount, gradesBase);// Convert.ToInt32(maxCount / subrange);
                 for (int i = 0; i <= count; i++)
                 {
                     var streamGeometry = new StreamGeometry() { FillRule = FillRule.Nonzero };
@@ -162,6 +163,7 @@ namespace FCSChart.Series
         /// <param name="areaLength"></param>
         private void DrawingVisual(List<StreamGeometryContext> sgcs, long[] datas, double gradesBase, Area area, int pointLength, int areaLength)
         {
+            if (sgcs == null || sgcs.Count <= 0 || datas == null || datas.Length <= 0) return;
             if (datas[0] < gradesBase && datas[1] < gradesBase && datas[2] < gradesBase && datas[3] < gradesBase)
             {
                 DrawingPoint(sgcs[0], area.Points, pointLength);

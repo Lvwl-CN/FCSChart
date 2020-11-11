@@ -1,10 +1,8 @@
 ﻿using FCSChart.Axis;
 using FCSChart.Graphical;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Input;
@@ -191,7 +189,18 @@ namespace FCSChart.FCSChart
             FillGraphicalCommand();
         }
 
+        #region 样式
+        /// <summary>
+        /// 下拉选择框ComboBox样式
+        /// </summary>
+        public Style ComboBoxStyle
+        {
+            get { return (Style)GetValue(ComboBoxStyleProperty); }
+            set { SetValue(ComboBoxStyleProperty, value); }
+        }
+        public static readonly DependencyProperty ComboBoxStyleProperty = DependencyProperty.Register("ComboBoxStyle", typeof(Style), typeof(FCSChartBase), new PropertyMetadata(null));
 
+        #endregion
 
 
     }

@@ -6,7 +6,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 
 namespace FCSChart.Series
 {
@@ -45,13 +44,15 @@ namespace FCSChart.Series
             if (OwnerChart.Y < 0) OwnerChart.Y = 1;
             int y = OwnerChart.Y;
             var geometries = await CreateGeometrys(items, xaxis, yaxis, x, y);
-            using var dc = DV.RenderOpen();
-            base.ClearTransform();
-            for (int i = 0; i < geometries.Count; i++)
+            using (var dc = DV.RenderOpen())
             {
-                dc.DrawGeometry(new SolidColorBrush(GetGradientColor(i, geometries.Count)), new Pen(this.Stroke, 0), geometries[i]);
+                base.ClearTransform();
+                for (int i = 0; i < geometries.Count; i++)
+                {
+                    dc.DrawGeometry(new SolidColorBrush(GetGradientColor(i, geometries.Count)), new Pen(this.Stroke, 0), geometries[i]);
+                }
+                dc.Close();
             }
-            dc.Close();
         }
 
 
@@ -98,7 +99,7 @@ namespace FCSChart.Series
                 var maxCount = datas.Values.Max(p => p.Values.Max(k => k));
                 List<StreamGeometry> streams = new List<StreamGeometry>();
                 List<StreamGeometryContext> sgcs = new List<StreamGeometryContext>();
-                var count = Convert.ToInt32(Math.Log(maxCount, gradesBase));
+                var count = maxCount == 0 ? 0 : Convert.ToInt32(Math.Log(maxCount, gradesBase));
                 for (int i = 0; i <= count; i++)
                 {
                     var streamGeometry = new StreamGeometry() { FillRule = FillRule.Nonzero };

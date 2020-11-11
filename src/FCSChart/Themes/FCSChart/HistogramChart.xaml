@@ -26,7 +26,7 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Border Grid.Column="1" Background="{TemplateBinding Background}"/>
-                            <Canvas Grid.Column="1" x:Name="Part_Panel" Background="White" Focusable="False">
+                            <Canvas Grid.Column="1" x:Name="Part_Panel" Background="{TemplateBinding PanelBackground}" Focusable="False">
                                 <ContentPresenter Content="{TemplateBinding Series}" Width="{Binding ElementName=Part_Panel,Path=ActualWidth}" Height="{Binding ElementName=Part_Panel,Path=ActualHeight}"/>
                             </Canvas>
                             <ContentPresenter Content="{TemplateBinding YAxis}"/>
@@ -42,14 +42,14 @@
                                         <PathGeometry>M0,6 L0,14 M0,10 L20,10 M20,6 L20,14</PathGeometry>
                                     </Button>
                                 </StackPanel>
-                                <ComboBox Grid.Column="2" ItemsSource="{TemplateBinding XAxisList}" SelectedItem="{Binding RelativeSource={RelativeSource TemplatedParent},Path=XAxis,Mode=TwoWay}" Focusable="False">
+                                <ComboBox Grid.Column="2" ItemsSource="{TemplateBinding XAxisList}" SelectedItem="{Binding RelativeSource={RelativeSource TemplatedParent},Path=XAxis,Mode=TwoWay}" Focusable="False" Style="{TemplateBinding ComboBoxStyle}">
                                     <ComboBox.ItemTemplate>
                                         <DataTemplate>
                                             <TextBlock Text="{Binding AxisName}"/>
                                         </DataTemplate>
                                     </ComboBox.ItemTemplate>
                                 </ComboBox>
-                                <ComboBox Grid.Column="1" ItemsSource="{TemplateBinding Parameters}" SelectedIndex="{Binding RelativeSource={RelativeSource TemplatedParent},Path=X,Mode=TwoWay}" ItemTemplate="{TemplateBinding XParamDataTemplate}" Focusable="False"/>
+                                <ComboBox Grid.Column="1" ItemsSource="{TemplateBinding Parameters}" SelectedIndex="{Binding RelativeSource={RelativeSource TemplatedParent},Path=X,Mode=TwoWay}" ItemTemplate="{TemplateBinding XParamDataTemplate}" Focusable="False" Style="{TemplateBinding ComboBoxStyle}"/>
                             </Grid>
                         </Grid>
                     </Border>
