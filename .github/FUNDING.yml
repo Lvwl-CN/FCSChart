@@ -9,4 +9,4 @@ community_bridge: # Replace with a single Community Bridge project-name e.g., cl
 liberapay: # Replace with a single Liberapay username
 issuehunt: # Replace with a single IssueHunt username
 otechie: # Replace with a single Otechie username
-custom:['https://github.com/Lvwl-CN/FCSChart/blob/master/doc/%E5%BE%AE%E4%BF%A1.jpg', 'https://github.com/Lvwl-CN/FCSChart/blob/master/doc/%E6%94%AF%E4%BB%98%E5%AE%9D.jpg']
+custom: ['https://github.com/Lvwl-CN/FCSChart/blob/master/doc/%E5%BE%AE%E4%BF%A1.jpg', 'https://github.com/Lvwl-CN/FCSChart/blob/master/doc/%E6%94%AF%E4%BB%98%E5%AE%9D.jpg']
