@@ -7,7 +7,7 @@
  
  门类型有：多边形门（PolygonGraphical）、四边形门（QuadrilateralGraphical）、段选门（VerticalGraphical）
  
-![效果图](https://github.com/Lvwl-CN/FCSChart/blob/master/doc/charts.png)
+![效果图](doc/charts.png)
 
 ## 文件目录结构 ##
 | 名称 | 说明 |
